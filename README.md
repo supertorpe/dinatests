@@ -10,6 +10,7 @@ The frontend talks to a backend -at the moment there is no repo for it, but it w
 * Light / Dark themes
 * Google Recaptcha
 * Algorithm to choose the next question based on answer date, number of hits and misses of each one
+* Explore public quizzes
 
 ## Screenshots
 <div style="display:flex;" >
