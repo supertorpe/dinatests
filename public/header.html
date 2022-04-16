@@ -1,0 +1,33 @@
+<ion-header data-ng-controller="headerCtrl">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{$parent.info.title}}</ion-title>
+        <ion-button id="btnSettings" fill="clear" slot="end">
+            <ion-icon src="assets/svg/settings-outline.svg"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+<ion-modal id="settingsModal" trigger="btnSettings" data-ng-controller="settingsCtrl">
+    <ion-header>
+        <ion-toolbar>
+          <ion-title>Preferencias</ion-title>
+          <ion-buttons slot="primary">
+            <ion-button onclick="document.getElementById('settingsModal').dismiss()">
+              <ion-icon slot="icon-only" src="assets/svg/close.svg"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-list>
+            <ion-item>
+                <ion-button data-ng-click="changeTheme()" fill="clear" expand="full">Cambiar tema oscuro / claro</ion-button>
+            </ion-item>
+            <ion-item>
+                <ion-button data-ng-click="copyToken()" fill="clear" expand="full">Copiar Token</ion-button>
+            </ion-item>
+        </ion-list>
+      </ion-content>
+</ion-modal>

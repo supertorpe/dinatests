@@ -1,0 +1,45 @@
+<ion-modal id="editModal" name="editModal">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Editar Pregunta</ion-title>
+            <ion-buttons slot="primary">
+                <ion-button onclick="document.getElementById('editModal').setAttribute('is-open','false')">
+                    <ion-icon slot="icon-only" src="assets/svg/close.svg"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-item>
+                <ion-textarea id="editTexto" name="editTexto"></ion-textarea>
+            </ion-item>
+            <ion-item data-ng-if="$parent.info.editTestButtons">
+                <ion-button id="btnEdit0" style="width:23%"
+                    fill="{{$parent.info.currentItem.respuestaIndex == 0 ? 'solid' : 'outline'}}" size="large"
+                    data-ng-click="editRespuesta(0)">{{$parent.info.respuestas == 'ABCD' ? 'A' : '1'}}</ion-button>
+                <ion-button id="btnEdit1" style="width:23%"
+                    fill="{{$parent.info.currentItem.respuestaIndex == 1 ? 'solid' : 'outline'}}" size="large"
+                    data-ng-click="editRespuesta(1)">{{$parent.info.respuestas == 'ABCD' ? 'B' : '2'}}</ion-button>
+                <ion-button id="btnEdit2" style="width:23%"
+                    fill="{{$parent.info.currentItem.respuestaIndex == 2 ? 'solid' : 'outline'}}" size="large"
+                    data-ng-click="editRespuesta(2)">{{$parent.info.respuestas == 'ABCD' ? 'C' : '3'}}</ion-button>
+                <ion-button id="btnEdit3" style="width:23%"
+                    fill="{{$parent.info.currentItem.respuestaIndex == 3 ? 'solid' : 'outline'}}" size="large"
+                    data-ng-click="editRespuesta(3)">{{$parent.info.respuestas == 'ABCD' ? 'D' : '4'}}</ion-button>
+            </ion-item>
+            <ion-item>
+                <ion-segment>
+                    <ion-segment-button data-ng-click="cancelEditQuestion()">
+                        <ion-icon src="assets/svg/close-circle-outline.svg"></ion-icon>
+                        <ion-label>Cancelar</ion-label>
+                    </ion-segment-button>
+                    <ion-segment-button data-ng-click="saveEditQuestion()">
+                        <ion-icon src="assets/svg/checkmark-circle-outline.svg"></ion-icon>
+                        <ion-label>Guardar</ion-label>
+                    </ion-segment-button>
+                </ion-segment>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal>

@@ -1,0 +1,31 @@
+<data-ng-include src="'header.html'"></data-ng-include>
+<ion-content>
+  <ion-reorder-group disabled="false">
+    <ion-item data-ng-repeat="item in info.tests track by item.id">
+      <ion-checkbox data-test-id="{{item.id}}" slot="start" data-ng-model="item.checked" data-ng-true-value="1", data-ng-false-value="0"></ion-checkbox>
+      <ion-label>{{::item.nombre}}</ion-label>
+      <ion-button fill="clear" data-ng-click="editTest(item.id)">
+        <ion-icon src="assets/svg/create-outline.svg"></ion-icon>
+      </ion-button>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+  </ion-reorder-group>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button data-ng-click="newTest()">
+        <ion-icon src="assets/svg/add-circle-outline.svg"></ion-icon>
+        <ion-label>crear</ion-label>
+      </ion-segment-button>
+      <ion-segment-button data-ng-click="startTests()">
+        <ion-icon src="assets/svg/play-circle-outline.svg"></ion-icon>
+        <ion-label>practicar</ion-label>
+      </ion-segment-button>
+      <ion-segment-button data-ng-click="searchTests()">
+        <ion-icon src="assets/svg/search-circle-outline.svg"></ion-icon>
+        <ion-label>explorar</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>

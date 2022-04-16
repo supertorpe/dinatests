@@ -1,0 +1,56 @@
+<data-ng-include src="'header.html'"></data-ng-include>
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xl="6" size-lg="6" size-md="8" size-sm="10" size-xs="12">
+        <ion-card>
+          <ion-card-header>
+            <!--<ion-card-subtitle>Card Subtitle</ion-card-subtitle>-->
+            <ion-card-title>Token</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Para poder usar la aplicación es necesario disponer de un Token.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xl="6" size-lg="6" size-md="8" size-sm="10" size-xs="12">
+        <ion-card>
+          <ion-card-header>
+            <!--<ion-card-subtitle>Card Subtitle</ion-card-subtitle>-->
+            <ion-card-title>No tengo ningún Token</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>Pulsa este botón para obtener un Token</ion-label>
+              <ion-button data-ng-click="btnGenTokenClick()">Obtener Token</ion-button>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xl="6" size-lg="6" size-md="8" size-sm="10" size-xs="12">
+        <ion-card>
+          <ion-card-header>
+            <!--<ion-card-subtitle>Card Subtitle</ion-card-subtitle>-->
+            <ion-card-title>Este es mi Token</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-input name="myToken" placeholder="Escribe aquí tu Token" data-ng-model="info.token"></ion-input>
+                <ion-button data-ng-disabled="!info.token" data-ng-click="btnCopyClick()">Copiar</ion-button>
+                <ion-button data-ng-disabled="!info.token" data-ng-click="btnContinueClick()">Continuar</ion-button>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<div class="g-recaptcha"
+  data-sitekey="6LchGXkfAAAAACRxhKDtOY5glljZJi29p3zxjcss"
+  data-callback="checkCaptcha"
+  data-size="invisible">
+</div>

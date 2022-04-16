@@ -1,0 +1,43 @@
+<data-ng-include src="'header.html'"></data-ng-include>
+
+<ion-content>
+    <ion-grid>
+        <ion-row class="ion-justify-content-center" data-ng-if="!info.isNew">
+            <ion-col size-xl="6" size-lg="6" size-md="8" size-sm="10" size-xs="12">
+                <ion-card>
+                    <ion-card-content>
+                        <ion-item>
+                            <ion-textarea disabled>{{info.currentItem.texto}}</ion-textarea>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<ion-footer>
+    <ion-item>
+        <ion-button style="width:18%" fill="{{info.currentItem.respuestaIndex == 0 ? 'solid' : 'outline'}}" size="large" data-ng-click="setRespuesta(0)">{{info.respuestas == 'ABCD' ? 'A' : '1'}}</ion-button>
+        <ion-button style="width:18%" fill="{{info.currentItem.respuestaIndex == 1 ? 'solid' : 'outline'}}" size="large" data-ng-click="setRespuesta(1)">{{info.respuestas == 'ABCD' ? 'B' : '2'}}</ion-button>
+        <ion-button style="width:18%" fill="{{info.currentItem.respuestaIndex == 2 ? 'solid' : 'outline'}}" size="large" data-ng-click="setRespuesta(2)">{{info.respuestas == 'ABCD' ? 'C' : '3'}}</ion-button>
+        <ion-button style="width:18%" fill="{{info.currentItem.respuestaIndex == 3 ? 'solid' : 'outline'}}" size="large" data-ng-click="setRespuesta(3)">{{info.respuestas == 'ABCD' ? 'D' : '4'}}</ion-button>
+        <ion-button style="width:18%" fill="{{info.currentItem.respuestaIndex == 999 ? 'solid' : 'outline'}}" size="large" data-ng-click="setRespuesta(999)">?</ion-button>
+    </ion-item>
+    <ion-item>
+        <ion-segment>
+            <ion-segment-button data-ng-click="goBack()">
+                <ion-icon src="assets/svg/arrow-back-circle-outline.svg"></ion-icon>
+                <ion-label>volver</ion-label>
+            </ion-segment-button>
+            <ion-segment-button data-ng-click="edit()">
+                <ion-icon src="assets/svg/create-outline.svg"></ion-icon>
+                <ion-label>Editar</ion-label>
+            </ion-segment-button>
+            <ion-segment-button name="btnSiguiente" data-ng-click="next()" disabled="true">
+                <ion-icon src="assets/svg/play-circle-outline.svg"></ion-icon>
+                <ion-label>Siguiente</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-item>
+</ion-footer>
+<data-ng-include src="'test-edit.html'"></data-ng-include>

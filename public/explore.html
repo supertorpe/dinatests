@@ -1,0 +1,21 @@
+<data-ng-include src="'header.html'"></data-ng-include>
+<ion-content>
+    <ion-item data-ng-repeat="item in info.tests track by item.id">
+      <ion-checkbox data-test-id="{{item.id}}" slot="start" data-ng-model="item.checked" data-ng-true-value="1", data-ng-false-value="0"></ion-checkbox>
+      <ion-label>{{::item.nombre}}</ion-label>
+    </ion-item>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button data-ng-click="home()">
+        <ion-icon src="assets/svg/home-outline.svg"></ion-icon>
+        <ion-label>volver</ion-label>
+      </ion-segment-button>
+      <ion-segment-button data-ng-click="importTests()">
+        <ion-icon src="assets/svg/cloud-download-outline.svg"></ion-icon>
+        <ion-label>importar</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>

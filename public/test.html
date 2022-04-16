@@ -1,0 +1,109 @@
+<data-ng-include src="'header.html'"></data-ng-include>
+<ion-content>
+    <ion-grid>
+        <ion-row class="ion-justify-content-center">
+            <ion-col size-xl="6" size-lg="6" size-md="8" size-sm="10" size-xs="12">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Datos del cuestionario</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-item>
+                            <ion-label>Nombre:</ion-label>
+                            <ion-input data-ng-model="info.nombre" name="nombre"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Posibles respuestas:</ion-label>
+                            <ion-select data-ng-value="info.respuestas" name="selectRespuestas">
+                                <ion-select-option value="ABCD">A) B) C) D)</ion-select-option>
+                                <ion-select-option value="1234">1) 2) 3) 4)</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Acceso público</ion-label>
+                            <ion-toggle id="checkPublico"></ion-toggle>
+                        </ion-item>
+                        <ion-segment>
+                            <ion-segment-button data-ng-click="remove()" data-ng-if="!info.isNew">
+                                <ion-icon src="assets/svg/trash-outline.svg"></ion-icon>
+                                <ion-label>Eliminar</ion-label>
+                            </ion-segment-button>
+                            <ion-segment-button data-ng-click="cancel()">
+                                <ion-icon src="assets/svg/close-circle-outline.svg"></ion-icon>
+                                <ion-label>Cancelar</ion-label>
+                            </ion-segment-button>
+                            <ion-segment-button data-ng-click="save()">
+                                <ion-icon src="assets/svg/checkmark-circle-outline.svg"></ion-icon>
+                                <ion-label>Guardar</ion-label>
+                            </ion-segment-button>
+                        </ion-segment>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-center" data-ng-if="!info.isNew">
+            <ion-col size-xl="6" size-lg="6" size-md="8" size-sm="10" size-xs="12">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Nueva pregunta</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-item>
+                            <ion-textarea auto-grow="true" data-ng-model="info.texto" name="texto"
+                                placeholder="Escribe aquí la pregunta y las posibles respuestas"></ion-textarea>
+                        </ion-item>
+                        <ion-item>
+                            <ion-button style="width:23%" fill="{{info.respuestaIndex == 0 ? 'solid' : 'outline'}}"
+                                size="large" data-ng-click="setRespuesta(0)">{{info.respuestas == 'ABCD' ? 'A' : '1'}}
+                            </ion-button>
+                            <ion-button style="width:23%" fill="{{info.respuestaIndex == 1 ? 'solid' : 'outline'}}"
+                                size="large" data-ng-click="setRespuesta(1)">{{info.respuestas == 'ABCD' ? 'B' : '2'}}
+                            </ion-button>
+                            <ion-button style="width:23%" fill="{{info.respuestaIndex == 2 ? 'solid' : 'outline'}}"
+                                size="large" data-ng-click="setRespuesta(2)">{{info.respuestas == 'ABCD' ? 'C' : '3'}}
+                            </ion-button>
+                            <ion-button style="width:23%" fill="{{info.respuestaIndex == 3 ? 'solid' : 'outline'}}"
+                                size="large" data-ng-click="setRespuesta(3)">{{info.respuestas == 'ABCD' ? 'D' : '4'}}
+                            </ion-button>
+                        </ion-item>
+                        <ion-item>
+                            <ion-segment>
+                                <ion-segment-button data-ng-click="saveNewQuestion()">
+                                    <ion-icon src="assets/svg/checkmark-circle-outline.svg"></ion-icon>
+                                    <ion-label>Guardar</ion-label>
+                                </ion-segment-button>
+                            </ion-segment>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-center" data-ng-repeat="item in info.preguntas track by item.id">
+            <ion-col size-xl="6" size-lg="6" size-md="8" size-sm="10" size-xs="12">
+                <ion-card>
+                    <ion-card-content>
+                        <ion-item>
+                            <ion-textarea disabled>{{item.texto}}</ion-textarea>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Respuesta: {{item.respuesta}})</ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-segment>
+                                <ion-segment-button data-ng-click="removeQuestion(item.id)">
+                                    <ion-icon src="assets/svg/trash-outline.svg"></ion-icon>
+                                    <ion-label>Eliminar</ion-label>
+                                </ion-segment-button>
+                                <ion-segment-button data-ng-click="edit(item)">
+                                    <ion-icon src="assets/svg/create-outline.svg"></ion-icon>
+                                    <ion-label>Editar</ion-label>
+                                </ion-segment-button>
+                            </ion-segment>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<data-ng-include src="'test-edit.html'"></data-ng-include>
