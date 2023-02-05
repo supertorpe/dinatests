@@ -11,6 +11,7 @@ The frontend talks to a backend -at the moment there is no repo for it, but it w
 * Google Recaptcha
 * Algorithm to choose the next question based on answer date, number of hits and misses of each one
 * Explore & Import public quizzes
+* Export quizz as Anki deck
 
 ## Screenshots
 <div style="display:flex;" >

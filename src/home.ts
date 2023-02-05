@@ -67,6 +67,9 @@ ng.module('app')
             $scope.editTest = (id: string) => {
                 $location.path(`/test/edit/${id}`);
             };
+            $scope.downloadTest = (id: string) => {
+                window.open(`http://7bh.com/dinatests/api/public/descargar/${tokenService.getLocalToken()}/${id}`, '_blank');
+            };
             $scope.startTests = () => {
                 const id_cuestionarios: number[] = [];
                 const checks = document.querySelectorAll('ion-checkbox[aria-checked="true"');
