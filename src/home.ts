@@ -68,7 +68,14 @@ ng.module('app')
                 $location.path(`/test/edit/${id}`);
             };
             $scope.downloadTest = (id: string) => {
-                window.open(`http://7bh.com/dinatests/api/public/descargar/${tokenService.getLocalToken()}/${id}`, '_blank');
+                const url = `/dinatests/api/public/descargar/${tokenService.getLocalToken()}/${id}`;
+                const link = document.createElement('a');
+                link.href = url;
+                link.target = '_blank';
+                link.download = `test_${id}.apkg`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             };
             $scope.startTests = () => {
                 const id_cuestionarios: number[] = [];
