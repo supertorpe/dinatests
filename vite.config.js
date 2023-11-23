@@ -10,7 +10,7 @@ export default defineConfig({
     splitVendorChunkPlugin(),
     VitePWA({
       manifestFilename: 'manifest.json',
-      includeAssets: ['*','assets/icons/*','assets/svg/*'],
+      includeAssets: ['*','*/*','*/*/*'],
       manifest: {
         name: 'Dinatests',
         short_name: 'dinatests',
